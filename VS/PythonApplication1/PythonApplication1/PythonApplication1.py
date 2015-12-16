@@ -30,7 +30,7 @@ dacabac
 
 
 '''
-chrf = []
+
 code_dict = {}
 st = input()
 code = input()
@@ -39,6 +39,10 @@ code_st = input()
 for i in range(len(st)):
     code_dict[st[i]] = code[i]
 for i in st_for_code:
-    
-
-print(code_dict)
+    print(code_dict[i], end = '')
+print()
+for i in code_st:
+    for key, value in code_dict.items():
+        if value == i:
+            print(key, end = '')
+            break
