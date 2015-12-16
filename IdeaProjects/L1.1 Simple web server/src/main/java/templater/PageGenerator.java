@@ -29,7 +29,7 @@ public class PageGenerator {
         return pageGenerator;
     }
 
-    public String getPage(String filename, Map<String, Object> data) {
+    public String getPage(String filename, Map<String, String> data) {
         Writer stream = new StringWriter();
         try {
             Template template = cfg.getTemplate(HTML_DIR + File.separator + filename);
@@ -39,6 +39,7 @@ public class PageGenerator {
         }
         return stream.toString();
     }
+
 
     private PageGenerator() {
         cfg = new Configuration();
