@@ -26,9 +26,6 @@ Sample Output 1:
 *d*%*d*#*d*
 dacabac
 
-
-
-
 '''
 
 code_dict = {}
