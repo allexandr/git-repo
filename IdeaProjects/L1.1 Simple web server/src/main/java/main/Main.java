@@ -25,8 +25,6 @@ public class Main {
         Server server = new Server(8080);
         server.setHandler(context);
 
-
-
         System.out.println("Server started!");
         server.start();
         server.join();
