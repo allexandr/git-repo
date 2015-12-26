@@ -19,15 +19,17 @@ import servlets.SignUpServlet;
 public class Main {
     public static void main(String[] args) {
 
-        ServletContextHandler context = new ServletContextHandler(ServletContextHandler.SESSIONS);
-
-        context.addServlet(new ServletHolder(new SignInServlet(accountService)), "/signin");
-        context.addServlet(new ServletHolder(new SignUpServlet(accountService)), "/signup");
-
         DBService dbService = new DBService();
         dbService.printConnectInfo();
 
-        try {
+        ServletContextHandler context = new ServletContextHandler(ServletContextHandler.SESSIONS);
+
+        //context.addServlet(new ServletHolder(new SignInServlet(accountService)), "/signin");
+        context.addServlet(new ServletHolder(new SignUpServlet(dbService)), "/signup");
+
+
+
+        /*try {
             long userId = dbService.addUser("ass", "fgfg");
             System.out.println("Added user id: " + userId);
 
@@ -36,6 +38,6 @@ public class Main {
 
         } catch (DBException e) {
             e.printStackTrace();
-        }
+        }*/
     }
 }

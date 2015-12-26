@@ -1,7 +1,13 @@
 package servlets;
 
-/**
- * Created by alex on 26.12.2015.
- */
+import dbService.DBService;
+
 public class SignUpServlet {
+    private final DBService dbService;
+
+
+    public SignUpServlet(DBService dbService) {
+        this.dbService = dbService;
+    }
+
 }
