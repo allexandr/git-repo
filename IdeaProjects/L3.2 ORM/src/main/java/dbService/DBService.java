@@ -23,7 +23,7 @@ import java.sql.SQLException;
  */
 public class DBService {
     private static final String hibernate_show_sql = "true";
-    private static final String hibernate_hbm2ddl_auto = "update";
+    private static final String hibernate_hbm2ddl_auto = "create";
 
     private final SessionFactory sessionFactory;
 
@@ -74,12 +74,12 @@ public class DBService {
         }
     }
 
-    public long addUser(String name, String pass) throws DBException {
+    public long addUser(String name) throws DBException {
         try {
             Session session = sessionFactory.openSession();
             Transaction transaction = session.beginTransaction();
             UsersDAO dao = new UsersDAO(session);
-            long id = dao.insertUser(name, pass);
+            long id = dao.insertUser(name);
             transaction.commit();
             session.close();
             return id;
