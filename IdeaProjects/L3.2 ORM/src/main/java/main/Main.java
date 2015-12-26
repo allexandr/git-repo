@@ -4,6 +4,10 @@ package main;
 import dbService.DBException;
 import dbService.DBService;
 import dbService.dataSets.UsersDataSet;
+import org.eclipse.jetty.servlet.ServletContextHandler;
+import org.eclipse.jetty.servlet.ServletHolder;
+import servlets.SignInServlet;
+import servlets.SignUpServlet;
 
 /**
  * @author v.chibrikov
@@ -14,6 +18,12 @@ import dbService.dataSets.UsersDataSet;
  */
 public class Main {
     public static void main(String[] args) {
+
+        ServletContextHandler context = new ServletContextHandler(ServletContextHandler.SESSIONS);
+
+        context.addServlet(new ServletHolder(new SignInServlet(accountService)), "/signin");
+        context.addServlet(new ServletHolder(new SignUpServlet(accountService)), "/signup");
+
         DBService dbService = new DBService();
         dbService.printConnectInfo();
 
