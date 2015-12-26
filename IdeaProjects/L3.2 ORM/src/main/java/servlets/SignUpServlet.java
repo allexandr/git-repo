@@ -2,9 +2,11 @@ package servlets;
 
 import dbService.DBService;
 
-public class SignUpServlet {
-    private final DBService dbService;
+import javax.servlet.http.HttpServlet;
 
+public class SignUpServlet extends HttpServlet{
+
+    private DBService dbService;
 
     public SignUpServlet(DBService dbService) {
         this.dbService = dbService;
