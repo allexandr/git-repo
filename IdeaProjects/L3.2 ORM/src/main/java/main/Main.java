@@ -23,13 +23,12 @@ public class Main {
         dbService.printConnectInfo();
 
         ServletContextHandler context = new ServletContextHandler(ServletContextHandler.SESSIONS);
-
-        //context.addServlet(new ServletHolder(new SignInServlet(accountService)), "/signin");
+        context.addServlet(new ServletHolder(new SignInServlet(dbService)), "/signin");
         context.addServlet(new ServletHolder(new SignUpServlet(dbService)), "/signup");
 
 
 
-        /*try {
+        try {
             long userId = dbService.addUser("ass", "fgfg");
             System.out.println("Added user id: " + userId);
 
@@ -38,6 +37,6 @@ public class Main {
 
         } catch (DBException e) {
             e.printStackTrace();
-        }*/
+        }
     }
 }
