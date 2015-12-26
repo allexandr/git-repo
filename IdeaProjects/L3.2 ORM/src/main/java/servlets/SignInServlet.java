@@ -32,7 +32,7 @@ public class SignInServlet extends HttpServlet{
         String login = request.getParameter("login");
         String pass = request.getParameter("password");
 
-        if (login == null || pass == null) {
+        if (login == null || "".equals(login) || pass == null || "".equals(pass)) {
             response.setContentType("text/html;charset=utf-8");
             response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
             return;
