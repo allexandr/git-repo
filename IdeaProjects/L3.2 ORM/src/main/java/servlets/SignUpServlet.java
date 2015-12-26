@@ -39,13 +39,15 @@ public class SignUpServlet extends HttpServlet{
             long userId = dbService.addUser(login, pass);
         }
         catch (DBException e) {
-            e.printStackTrace();
+            //e.printStackTrace();
+            response.setContentType("text/html;charset=utf-8");
+            response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+            response.getWriter().println("User exist");
+            return;
         }
         response.setContentType("text/html;charset=utf-8");
         response.setStatus(HttpServletResponse.SC_OK);
         //response.getWriter().println("ok");
-
-
 
     }
 }
