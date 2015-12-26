@@ -18,7 +18,7 @@ public class Main {
         dbService.printConnectInfo();
 
         try {
-            long userId = dbService.addUser("tully");
+            long userId = dbService.addUser("ss", "ss");
             System.out.println("Added user id: " + userId);
 
             UsersDataSet dataSet = dbService.getUser(userId);
