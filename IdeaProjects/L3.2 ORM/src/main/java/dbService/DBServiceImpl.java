@@ -1,5 +1,6 @@
 package dbService;
 
+import Interfaces.DBServiceI;
 import dbService.dao.UsersDAO;
 import dbService.dataSets.UsersDataSet;
 import org.hibernate.HibernateException;
@@ -21,13 +22,13 @@ import java.sql.SQLException;
  *         <p>
  *         Описание курса и лицензия: https://github.com/vitaly-chibrikov/stepic_java_webserver
  */
-public class DBService {
+public class DBServiceImpl implements DBServiceI {
     private static final String hibernate_show_sql = "true";
     private static final String hibernate_hbm2ddl_auto = "update";
 
     private final SessionFactory sessionFactory;
 
-    public DBService() {
+    public DBServiceImpl() {
         Configuration configuration = getH2Configuration();
         sessionFactory = createSessionFactory(configuration);
     }
@@ -62,6 +63,7 @@ public class DBService {
     }
 
 
+    @Override
     public UsersDataSet getUser(long id) throws DBException {
         try {
             Session session = sessionFactory.openSession();
@@ -74,6 +76,7 @@ public class DBService {
         }
     }
 
+    @Override
     public UsersDataSet getUser(String name) throws DBException {
         try {
             Session session = sessionFactory.openSession();
@@ -86,6 +89,7 @@ public class DBService {
         }
     }
 
+    @Override
     public long addUser(String name, String pass) throws DBException {
         try {
             Session session = sessionFactory.openSession();
@@ -100,6 +104,7 @@ public class DBService {
         }
     }
 
+    @Override
     public void printConnectInfo() {
         try {
             SessionFactoryImpl sessionFactoryImpl = (SessionFactoryImpl) sessionFactory;

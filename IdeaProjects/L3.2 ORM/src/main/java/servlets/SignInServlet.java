@@ -1,8 +1,8 @@
 package servlets;
 
 
+import Interfaces.DBServiceI;
 import dbService.DBException;
-import dbService.DBService;
 import dbService.dataSets.UsersDataSet;
 
 import javax.servlet.ServletException;
@@ -12,9 +12,9 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 public class SignInServlet extends HttpServlet{
-    private DBService dbService;
+    private DBServiceI dbService;
 
-    public SignInServlet(DBService dbService) {
+    public SignInServlet(DBServiceI dbService) {
         this.dbService = dbService;
     }
 

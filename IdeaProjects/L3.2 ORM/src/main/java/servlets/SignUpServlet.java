@@ -1,7 +1,7 @@
 package servlets;
 
+import Interfaces.DBServiceI;
 import dbService.DBException;
-import dbService.DBService;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -11,9 +11,9 @@ import java.io.IOException;
 
 public class SignUpServlet extends HttpServlet{
 
-    private DBService dbService;
+    private DBServiceI dbService;
 
-    public SignUpServlet(DBService dbService) {
+    public SignUpServlet(DBServiceI dbService) {
         this.dbService = dbService;
     }
 

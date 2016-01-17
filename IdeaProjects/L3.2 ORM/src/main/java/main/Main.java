@@ -1,9 +1,8 @@
 package main;
 
 
-import dbService.DBException;
-import dbService.DBService;
-import dbService.dataSets.UsersDataSet;
+import Interfaces.DBServiceI;
+import dbService.DBServiceImpl;
 import org.eclipse.jetty.server.Handler;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.server.handler.HandlerList;
@@ -23,7 +22,7 @@ import servlets.SignUpServlet;
 public class Main {
     public static void main(String[] args) throws Exception{
 
-        DBService dbService = new DBService();
+        DBServiceI dbService = new DBServiceImpl();
         dbService.printConnectInfo();
 /*
         try {
