@@ -30,6 +30,7 @@ public class Main {
         handlers.setHandlers(new Handler[]{resource_handler, context});
         server.setHandler(handlers);
 
+        System.out.println("Server started");
         server.start();
         server.join();
     }
