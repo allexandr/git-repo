@@ -1,13 +1,15 @@
-/**
- * Created by alex on 29.12.2015.
- */
-function truncate(st, maxlength){
-    if (st.length > maxlength){
-        return st.slice(0, maxlength - 3) + "...";
-    }
-    return st;
+arr = [ 1, 2, 3, 4, 5 ];
+
+function getSums(arr) {
+    var outArr = [];
+    arr.reduce(function(sum, current){
+        outArr.push(sum + current);
+    });
+
+    return outArr;
 }
 
-alert(truncate("Вот, что мне хотелось бы сказать на эту тему:", 20));
 
+
+alert( getSums( arr )); // 4,5,2,5
 
