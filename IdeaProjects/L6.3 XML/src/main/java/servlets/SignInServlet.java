@@ -1,6 +1,8 @@
 package servlets;
 
 import resources.DBParametersResource;
+import resources.TestResource;
+import resources.ResourceServer;
 import sax.ReadXMLFileSAX;
 
 import javax.servlet.ServletException;
@@ -30,8 +32,9 @@ public class SignInServlet extends HttpServlet{
         String path = request.getParameter("path");
 
 
-        DBParametersResource resource = (DBParametersResource) ReadXMLFileSAX.readXML(path);
+        TestResource resource = (TestResource) ReadXMLFileSAX.readXML(path);
         System.out.println(resource);
+        ResourceServer resourceServer = new ResourceServer(resource);
 
         response.setContentType("text/html;charset=utf-8");
         response.setStatus(HttpServletResponse.SC_OK);
