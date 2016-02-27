@@ -1,9 +1,7 @@
 package main;
 
 
-import resources.DBParametersResource;
-import resources.ResourceServer;
-import resources.TestResource;
+import resources.*;
 import sax.ReadXMLFileSAX;
 import org.eclipse.jetty.server.Handler;
 import org.eclipse.jetty.server.Server;
@@ -28,12 +26,13 @@ import java.lang.management.ManagementFactory;
 public class Main {
     public static void main(String[] args) throws Exception {
 
-        TestResource testResource = new TestResource();
-        ResourceServer resourceServer = new ResourceServer(testResource);
-
-        MBeanServer mbs = ManagementFactory.getPlatformMBeanServer();
-        ObjectName name = new ObjectName("Admin:type=ResourceServerController");
-        mbs.registerMBean(resourceServer, name);
+//        TestResource testResource = new TestResource();
+//        ResourceServer resourceServer = new ResourceServer(testResource);
+//        ResourceServerControllerMBean serverStatistics = new ResourceServerController(resourceServer);
+//
+//        MBeanServer mbs = ManagementFactory.getPlatformMBeanServer();
+//        ObjectName name = new ObjectName("Admin:type=ResourceServerController");
+//        mbs.registerMBean(serverStatistics, name);
 
         ServletContextHandler context = new ServletContextHandler(ServletContextHandler.SESSIONS);
         context.addServlet(new ServletHolder(new SignInServlet()), "/resources");
